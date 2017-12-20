@@ -1,0 +1,28 @@
+/*.button:hover{
+    -fx-background-color: rgb(240, 235, 230);
+}*/
+
+.button:focused,
+.button:armed,
+.button:hover{
+    -fx-background-radius: 999px;
+}
+
+#magniSlider{
+    -jfx-default-thumb: #CCCCCC;
+    -jfx-default-track: #00bcd4;
+}
+
+.jfx-slider .thumb,
+.jfx-slider:focused .thumb {
+    -fx-background-color: -jfx-default-track;
+
+}
+
+.jfx-slider .animated-thumb{
+    -fx-background-color: -jfx-default-track;
+}
+
+.jfx-date-picker{
+    -jfx-default-color: #00bcd4;
+}

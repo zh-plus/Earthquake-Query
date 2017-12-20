@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: rgb(255,251,240);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LayoutController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Earthquake Search" wrappingWidth="179.95703125" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Roboto Regular" size="20.0" />
+               </font>
+            </Text>
+         </top>
+         <left>
+            <VBox prefHeight="350.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="40.0" left="20.0" />
+               </BorderPane.margin>
+               <children>
+                  <Label text="From:">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXDatePicker fx:id="fromDate" prefHeight="25.0" prefWidth="150.0" promptText="10/15/2017">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXDatePicker>
+                  <Label text="To:">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXDatePicker fx:id="toDate" prefHeight="25.0" prefWidth="150.0" promptText="10/29/2017">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXDatePicker>
+                  <Label text="Magnitude:(≥)">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXSlider fx:id="magniSlider" blockIncrement="0.1" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXSlider>
+                  <Label text="Region:">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="10.0" top="4.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXComboBox fx:id="regionComboBox" focusColor="#08c5ff" prefHeight="25.0" prefWidth="150.0" unFocusColor="BLACK">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+                  <JFXButton fx:id="searchBtn" alignment="TOP_CENTER" buttonType="RAISED" defaultButton="true" ellipsisString="" onAction="#handleSubmitButtonAction" prefHeight="44.0" prefWidth="42.0" ripplerFill="#8d8989" textOverrun="CLIP">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fx:id="searchIcon" fitHeight="57.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/search_48px_1199481_easyicon.net.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <JFXTabPane prefHeight="415.0" prefWidth="532.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab fx:id="dataTab" text="   Data   ">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="dataTable" layoutX="6.0" layoutY="-4.0" prefHeight="394.0" prefWidth="645.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                    <TableColumn fx:id="regionCol" prefWidth="150.0" text="Region" />
+                                    <TableColumn fx:id="dateCol" text="Date" />
+                                  <TableColumn fx:id="latitudeCol" minWidth="4.0" text="Latitude" />
+                                  <TableColumn fx:id="longitudeCol" text="Longtitude" />
+                                    <TableColumn fx:id="magnitudeCol" text="Magnitude" />
+                                    <TableColumn fx:id="depthCol" text="Depth" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="mapTab" text="   Map   ">
+                  <content>
+                    <AnchorPane fx:id="mapPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="mapImg" fitHeight="372.0" fitWidth="640.0" layoutX="-2.0" layoutY="3.0">
+                                 <image>
+                                    <Image url="@../Images/Mercator.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="magniCharTab" text="   Char by Magnitude   ">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BarChart fx:id="magniChar" layoutX="14.0" layoutY="-6.0" legendVisible="false" prefHeight="371.0" prefWidth="635.0" title="Quakes by Magnitude" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <xAxis>
+                                  <CategoryAxis fx:id="magniX" label="Magnitude" side="BOTTOM" tickLabelGap="5.0" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis label="Number of Quakes" side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="dateCharTab" text="   Char by Date   ">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BarChart fx:id="dateChar" layoutX="14.0" layoutY="-6.0" legendVisible="false" prefHeight="388.0" prefWidth="635.0" title="Quakes by Date" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <xAxis>
+                                    <CategoryAxis fx:id="dateX" label="Date" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis label="Number of Quakes" side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+               <BorderPane.margin>
+                  <Insets bottom="30.0" left="15.0" right="30.0" top="5.0" />
+               </BorderPane.margin>
+            </JFXTabPane>
+         </center>
+         <bottom>
+            <Text fx:id="test" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
