@@ -32,37 +32,47 @@
                   <Insets bottom="40.0" left="20.0" />
                </BorderPane.margin>
                <children>
-                  <Label text="From:">
+                  <JFXCheckBox fx:id="fromCheckBox" text="From:">
                      <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
+                        <Insets left="10.0" />
                      </VBox.margin>
-                  </Label>
+                  </JFXCheckBox>
                   <JFXDatePicker fx:id="fromDate" prefHeight="25.0" prefWidth="150.0" promptText="10/15/2017">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXDatePicker>
-                  <Label text="To:">
+                  <JFXCheckBox fx:id="toCheckBox" text="To:">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
-                  </Label>
+                  </JFXCheckBox>
                   <JFXDatePicker fx:id="toDate" prefHeight="25.0" prefWidth="150.0" promptText="10/29/2017">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXDatePicker>
-                  <Label text="Magnitude:(≥)">
+                  <JFXCheckBox fx:id="magniCheckBox" text="Magnitude:(≥)">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
-                  </Label>
+                  </JFXCheckBox>
                   <JFXSlider fx:id="magniSlider" blockIncrement="0.1" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXSlider>
-                  <Label text="Region:">
+                  <JFXCheckBox fx:id="regionCheckBox" text="Region:">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXCheckBox>
+                  <JFXComboBox fx:id="regionComboBox" focusColor="#08c5ff" prefHeight="25.0" prefWidth="150.0" unFocusColor="BLACK">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+                  <Label>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -70,11 +80,6 @@
                         <Insets left="10.0" top="4.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXComboBox fx:id="regionComboBox" focusColor="#08c5ff" prefHeight="25.0" prefWidth="150.0" unFocusColor="BLACK">
-                     <VBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </VBox.margin>
-                  </JFXComboBox>
                   <JFXButton fx:id="searchBtn" alignment="TOP_CENTER" buttonType="RAISED" defaultButton="true" ellipsisString="" onAction="#handleSubmitButtonAction" prefHeight="44.0" prefWidth="42.0" ripplerFill="#8d8989" textOverrun="CLIP">
                      <VBox.margin>
                         <Insets left="10.0" top="20.0" />

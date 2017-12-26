@@ -26,3 +26,7 @@
 .jfx-date-picker{
     -jfx-default-color: #00bcd4;
 }
+
+.jfx-check-box{
+    -jfx-checked-color: #2edfa3;
+}
