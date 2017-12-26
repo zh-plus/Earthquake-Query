@@ -31,9 +31,6 @@ public class LayoutController implements Initializable{
     private Text title;
 
     @FXML
-    private Text test;
-
-    @FXML
     private JFXDatePicker fromDate;
 
     @FXML
@@ -114,13 +111,16 @@ public class LayoutController implements Initializable{
     @FXML
     void handleSubmitButtonAction(ActionEvent event)
     {
-        //test这个Text文本只用于测试，最后需要删除
-        test.setText("event handled!");
-
         loadDataInTable();
         loadDataInMagniChar();
         loadDataInDateChar();
         loadDataInMap();
+    }
+
+    @FXML
+    void handleRefreshButtonAction(ActionEvent event)
+    {
+
     }
 
     @Override

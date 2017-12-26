@@ -2,9 +2,9 @@
     -fx-background-color: rgb(240, 235, 230);
 }*/
 
-.button:focused,
-.button:armed,
-.button:hover{
+.jfx-button:focused,
+.jfx-button:armed,
+.jfx-button:hover{
     -fx-background-radius: 999px;
 }
 

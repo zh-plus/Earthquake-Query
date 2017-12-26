@@ -2,9 +2,9 @@
     -fx-background-color: rgb(240, 235, 230);
 }*/
 
-.button:focused,
-.button:armed,
-.button:hover{
+.jfx-button:focused,
+.jfx-button:armed,
+.jfx-button:hover{
     -fx-background-radius: 999px;
 }
 
@@ -25,4 +25,8 @@
 
 .jfx-date-picker{
     -jfx-default-color: #00bcd4;
+}
+
+.jfx-check-box{
+    -jfx-checked-color: #2edfa3;
 }

@@ -16,53 +16,53 @@
 <AnchorPane prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: rgb(255,251,240);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LayoutController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Earthquake Search" wrappingWidth="179.95703125" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets top="20.0" />
-               </BorderPane.margin>
-               <font>
-                  <Font name="Roboto Regular" size="20.0" />
-               </font>
-            </Text>
-         </top>
          <left>
             <VBox prefHeight="350.0" prefWidth="150.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="40.0" left="20.0" />
                </BorderPane.margin>
                <children>
-                  <Label text="From:">
+                  <JFXCheckBox fx:id="fromCheckBox" text="From:">
                      <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
+                        <Insets left="10.0" />
                      </VBox.margin>
-                  </Label>
+                  </JFXCheckBox>
                   <JFXDatePicker fx:id="fromDate" prefHeight="25.0" prefWidth="150.0" promptText="10/15/2017">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXDatePicker>
-                  <Label text="To:">
+                  <JFXCheckBox fx:id="toCheckBox" text="To:">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
-                  </Label>
+                  </JFXCheckBox>
                   <JFXDatePicker fx:id="toDate" prefHeight="25.0" prefWidth="150.0" promptText="10/29/2017">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXDatePicker>
-                  <Label text="Magnitude:(≥)">
+                  <JFXCheckBox fx:id="magniCheckBox" text="Magnitude:(≥)">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
-                  </Label>
+                  </JFXCheckBox>
                   <JFXSlider fx:id="magniSlider" blockIncrement="0.1" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" snapToTicks="true">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </JFXSlider>
-                  <Label text="Region:">
+                  <JFXCheckBox fx:id="regionCheckBox" text="Region:">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXCheckBox>
+                  <JFXComboBox fx:id="regionComboBox" focusColor="#08c5ff" prefHeight="25.0" prefWidth="150.0" unFocusColor="BLACK">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+                  <Label>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -70,26 +70,40 @@
                         <Insets left="10.0" top="4.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXComboBox fx:id="regionComboBox" focusColor="#08c5ff" prefHeight="25.0" prefWidth="150.0" unFocusColor="BLACK">
-                     <VBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </VBox.margin>
-                  </JFXComboBox>
-                  <JFXButton fx:id="searchBtn" alignment="TOP_CENTER" buttonType="RAISED" defaultButton="true" ellipsisString="" onAction="#handleSubmitButtonAction" prefHeight="44.0" prefWidth="42.0" ripplerFill="#8d8989" textOverrun="CLIP">
-                     <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
-                     </VBox.margin>
-                     <graphic>
-                        <ImageView fx:id="searchIcon" fitHeight="57.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/search_48px_1199481_easyicon.net.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font size="1.0" />
-                     </font>
-                  </JFXButton>
+                  <HBox>
+                     <children>
+                        <JFXButton fx:id="searchBtn" alignment="TOP_CENTER" buttonType="RAISED" defaultButton="true" ellipsisString="" onAction="#handleSubmitButtonAction" prefHeight="44.0" prefWidth="42.0" ripplerFill="#A9A9A9" textOverrun="CLIP">
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fx:id="searchIcon" fitHeight="57.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/search_48px_1199481_easyicon.net.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="1.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="refreshBtn" alignment="TOP_CENTER" buttonType="RAISED" defaultButton="true" ellipsisString="" onAction="#handleRefreshButtonAction" prefHeight="44.0" prefWidth="42.0" ripplerFill="#A9A9A9" textOverrun="CLIP">
+                           <graphic>
+                              <ImageView fx:id="refreshBtn" fitHeight="57.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/refresh.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="1.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="22.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </left>
@@ -164,9 +178,16 @@
                </BorderPane.margin>
             </JFXTabPane>
          </center>
-         <bottom>
-            <Text fx:id="test" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" BorderPane.alignment="CENTER" />
-         </bottom>
+         <top>
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Earthquake Search" wrappingWidth="179.95703125" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Roboto Regular" size="20.0" />
+               </font>
+            </Text>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>
