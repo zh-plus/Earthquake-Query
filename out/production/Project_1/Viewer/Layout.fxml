@@ -89,7 +89,7 @@
                         </JFXButton>
                         <JFXButton fx:id="refreshBtn" alignment="TOP_CENTER" buttonType="RAISED" defaultButton="true" ellipsisString="" onAction="#handleRefreshButtonAction" prefHeight="44.0" prefWidth="42.0" ripplerFill="#A9A9A9" textOverrun="CLIP">
                            <graphic>
-                              <ImageView fx:id="refreshBtn" fitHeight="57.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="57.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/refresh.png" />
                                  </image>
